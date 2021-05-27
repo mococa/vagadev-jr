@@ -4,30 +4,27 @@ $(document).click((e) => {
 
         if ($(e.target).attr('class')) {
             const classe = $(e.target).attr('class')
-            switch (classe) {
-                case "search":
-                case "search-img":
-                case "search-input":
+            switch (true) {
+                case classe.includes("search"):
+                case classe.includes("search-img"):
+                case classe.includes("search-input"):
                     return $('.search input').addClass('searching');
-                case "hamburger":
-                    if (!$('.header-games-overlay').hasClass('active')) return $('.header-games-overlay').addClass('active')
+                case classe.includes("hamburger"):
+                    $('.header-games-overlay').toggleClass('active')
+                    if ($('.header-games-overlay').hasClass('active') && IS_MOBILE) {
+                        $('.hamburger').attr('src', './svgs/close-burger.svg')
+                        $('.header').css('background-color', 'var(--dark-blue)')
+                    } else {
+                        $('.hamburger').attr('src', './svgs/icon_hamburguer.svg')
+                        $('.header').css('background-color', 'black')
+                    }
+                    //$('.hamburger').toggleClass('opened')
+                    return
                 default:
                     $('.search input').removeClass('searching')
                     $('.header-games-overlay').removeClass('active')
 
             }
-            /*// NORMALIZANDO BUSCA
-            if (classe.startsWith('search')) {
-                $('.search input').addClass('searching')
-            } //else if (classe == "hamburger") {
-            //$('.header-games-overlay').addClass('active')
-            //}
-            // NORMALIZANDO O OVERLAY DO HAMURGUER
-            else {
-                $('.search input').removeClass('searching')
-                    //if (classe != "hamburger")
-                    //$('.header-games-overlay').removeClass('active')
-            }*/
         }
     })
     //NORMALIZANDO BUSCA
@@ -37,14 +34,14 @@ $('.search input').on('keyup', function(e) {
         }
     })
     //HOVER HAMBURGUER
-$('.hamburger').on('click mouseenter', function() {
+$('.hamburger').on('mouseenter', function() {
     $('.header-games-overlay').addClass('active')
 
 })
 
 // BANNER SLIDER (SLICK)
 $('.banner').slick({
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 5000,
         arrows: false
     })

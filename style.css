@@ -4,6 +4,8 @@
     background-color: black;
     padding: 10px 200px;
     box-shadow: 0 8px 8px -2px #000000;
+    z-index: 1;
+    transition: 200ms;
 }
 
 .header div {
@@ -33,7 +35,6 @@
     outline: none;
     border: none;
     border-radius: 20px;
-    transition: 200ms;
 }
 
 .search input.searching {
@@ -79,16 +80,17 @@
 
 .header-games-overlay-bg {
     width: calc(100% - 5px);
-    height: calc(100% - 5px);
+    height: calc(100% - 23px);
     background: var(--dark-blue);
     border-radius: 5px;
     z-index: 1000;
     place-items: flex-start;
+    padding-top: 20px;
 }
 
 .header-games-overlay-bg ul {
     list-style-type: none;
-    padding: 25px 3px;
+    padding: 10px 3px;
     align-self: flex-start;
     text-align: center;
     gap: 5px;

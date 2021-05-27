@@ -30,13 +30,15 @@ const db = {
             title: "Mortal Kombat X",
             price: 299.99,
             description: "Mortal Kombat X combina uma apresentação cinemática única com uma jogabilidade totalmente nova. Os jogadores podem escolher pela primeira vez diversas variantes de cada personagem, afetando tanto a estratégia como o estilo de luta.",
-            img: "./img/principal_banner_desktop.jpg"
+            img: "./img/principal_banner_desktop.jpg",
+            img_mobile: "./img/principal_banner_mobile.jpg",
         },
         {
             title: "Red Dead Redemption",
             price: 199.99,
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-            img: "./img/principal_banner_desktop_02.jpg"
+            img: "./img/principal_banner_desktop_02.jpg",
+            img_mobile: "./img/principal_banner_mobile_02.jpg",
         },
     ],
     overlay_games: [{
