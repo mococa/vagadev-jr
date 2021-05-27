@@ -6,127 +6,129 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agencia N1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="default.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body>
-
     <div class="header">
-        <div class="left">
-            <img src="./svgs/icon_hamburguer.svg" alt="" class="hamburger">
-            <img src="./img/Logo_N1_Rush_fundo_escuro_bg_tranparente 1.png" alt="" class="logo">
+        <div class="left" style="gap: 40px;">
+            <img src="./svgs/icon_hamburguer.svg" alt="" class="hamburger clickable">
+            <a href=""><img src="./img/Logo_N1_Rush_fundo_escuro_bg_tranparente 1.png" alt="Logo Agência N1" class="logo"></a>
+            <div class="header-games-overlay">
+                <div class="header-games-overlay-bg"></div>
+            </div>
+
         </div>
         <div class="right">
-            <div class="contact">
-                <img src="./svgs/paper-plane.svg" alt="" class="contact-img">
+            <a class="contact clickable" href="/contato" style="display: flex;place-items: center;">
+                <img src="./svgs/paper-plane.svg" alt="Contato" class="contact-img">
                 <span>Contato</span>
+            </a>
+            <div class="search" style="gap:10px;">
+                <img src="./svgs/search-solid.svg" alt="Buscar" class="search-img clickable">
+                <input type="text" placeholder="Buscar" class="search-input">
             </div>
-            <div class="search">
-                <img src="./svgs/search-solid.svg" alt="" class="search-img">
-                <span>Buscar</span>
-            </div>
-            <div class="cart">
-                <img src="./svgs/shopping-bag-solid.svg" alt="" class="cart-img">
+            <a class="cart clickable" href="/carrinho" style="display: flex;">
+                <img src="./svgs/shopping-bag-solid.svg" alt="Sacola" class="cart-img">
                 <span class="badge">2</span>
-            </div>
+            </a>
         </div>
     </div>
 
     <div class="banner">
-        <div class="banner-info">
-            <span class="banner-info-title"></span>
-            <span class="banner-info-price"></span>
-            <span class="banner-info description"></span>
-        </div>
-        <div class="banner-nav">
-            <span class="banner-nav-title"></span>
-            <div class="banner-line-separator"></div>
-            <div class="banner-nav-self">
-                <span>1/2</span>
-                <div class="arrows">
-                    <img src="./svgs/angle-left-solid.svg" alt="" class="left">
-                    <img src="./svgs/angle-right-solid.svg    " alt="" class="right">
-                </div>
+
+    </div>
+    <div class="banner-nav">
+        <span class="banner-nav-title"></span>
+        <div class="banner-line-separator"></div>
+        <div class="banner-nav-self">
+            <span>1/2</span>
+            <div class="arrows">
+                <img src="./svgs/angle-left-solid.svg" alt="Anterior" class="left clickable" onclick="$('.banner').slick('slickPrev')">
+                <img src="./svgs/angle-right-solid.svg    " alt="Avançar" class="right clickable" onclick="$('.banner').slick('slickNext')">
             </div>
         </div>
     </div>
     <div class="games-overlay">
-        <div class="game-overlay">
-            <div class="game-footer">
-                <span class="game-title">
 
-                </span>
-                <hr>
-            </div>
-        </div>
     </div>
-    <div class="highlight">
-        <div>
-            <img src="./svgs/gallery-3x3.svg" alt="">
+    <div class="main">
+        <div class="highlight">
+            <img src="./svgs/gallery-3x3.svg" alt="Destaque" width="18px">
             <span>Produtos em destaque</span>
         </div>
-        <div class="games-card-container">
-            <div class="game-card">
-                <div class="card-top"></div>
-                <div class="card-bottom">
-                    <span class="card-game-title"></span>
-                    <strong class="card-game-price"></strong>
-                    <div class="btn-buy">Comprar</div>
-                </div>
-            </div>
+        <div class="games-card-container flex-hr">
+
         </div>
     </div>
+    <div class="modal">
+        <div class="modal-order">
+            <div class="top" style="display: flex;place-content: flex-end;">
+                <img src="./svgs/close_btn.svg" alt="Fechar" class="clickable">
+            </div>
+            <div class="bottom">
+                <span class="separator"><span style="padding: 0 10px;font-size:24px;max-width: 170px;">Pedido realizado com sucesso!</span></span>
+                <img src="./img/mario_peace.png" alt="Sucesso" style="padding: 0 50px;">
+            </div>
+
+        </div>
+    </div>
+
     <div class="footer">
         <div class="left">
-            <img src="./img/logo_header 1.png" alt="" class="logo">
+            <img src="./img/logo_header 1.png" alt="Logo Agência N1" class="logo">
         </div>
         <div class="right">
             <span>Agência N1 - Todos os direitos reservados</span>
         </div>
     </div>
+    <script src="./methods.js"></script>
+    <script src="./db.js"></script>
+    <script>
+        db.banner_games.forEach(game => {
+            $('.banner').append(`
+            <div class="banner-slide" style="background-image:url(${game.img});">
+                <div class="banner-info">
+                    <span class="banner-info-title">${game.title}</span>
+                    <span class="banner-info-price" style="color:var(--blue);
+                        font-weight:bold;font-size:50px;">R$${subfy(currency(game.price), 22)}</span>
+                    <span class="banner-info-description">${game.description}</span>
+                </div>
+            </div>
+            `)
+        })
+        db.overlay_games.forEach(game => {
+            $('.games-overlay').append(`
+            <a class="game-overlay clickable" style="background-image:url(${game.img});" href="${game.href}">
+                <div class="game-footer">
+                    <span class="game-title">${game.title}</span>
+                    <hr>
+                </div>
+            </a>
+            `)
+        })
+        db.hot_games.forEach(game => {
+            $('.games-card-container').append(`
+                <div class="game-card">
+                    <game>${game.id}</game>
+                    <a class="card-top" href="${game.href}" style="background-image:url(${game.img});"></a>
+                    <div class="card-bottom flex-vr">
+                        <a class="card-game-title" href="${game.href}">${game.title}</a>
+                        <strong class="card-game-price">R$ ${currency(game.price)}</strong>
+                        <div class="btn-buy clickable">Comprar</div>
+                    </div>
+                </div>
+            `)
+
+        })
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
-<script>
-    var db = {
-        banner_games: [
-            {
-                title: "Mortal Kombat X",
-                price: 299.99,
-                description: "Mortal Kombat X combina uma apresentação cinemática única com uma jogabilidade totalmente nova. Os jogadores podem escolher pela primeira vez diversas variantes de cada personagem, afetando tanto a estratégia como o estilo de luta.",
-                img: "./img/principal_banner_desktop.jpg"
-            },
-            {
-                title: "Red Dead Redemption",
-                price: 199.99,
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                img: "./img/principal_banner_desktop_02.jpg"
-            },
-        ],
-        overlay_games:[
-            {
-                title:"The Legend of Zelda - Breath of th wild",
-                img:"./img/zelda_banner.jpg"
-            },
-            {
-                title:"SEKIRO - Shadows die twice",
-                img:"./img/sekiro_banner.jpg"
-            }
-        ],
-        hot_games:[
-            {
-                title: "Outriders",
-                price: 200.00,
-                img: "./img/principal_banner_desktop.jpg"
-            },
-            {
-                title: "CYBERPUNK 2077",
-                price: 200.00,
-                img: "./img/principal_banner_desktop.jpg"
-            },
-            {
-                title: "Donkey Kong Country Tropical Freeze",
-                price: 200.00,
-                img: "./s"
-            },
-        ]
-    }
-</script>
+
+<script src="./home.js" defer></script>
+
 </html>

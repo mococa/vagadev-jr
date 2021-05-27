@@ -1,0 +1,263 @@
+    /*  HEADER */
+    
+    .header {
+        background-color: black;
+        display: flex;
+        flex-flow: row;
+        padding: 10px 200px;
+        box-shadow: 0 8px 8px -2px #000000;
+    }
+    
+    .header div {
+        display: flex;
+        color: white;
+        place-items: center;
+    }
+    
+    .header .right {
+        flex: 1;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    
+    .header .right a {
+        height: 100%;
+    }
+    
+    .search input {
+        padding: 10px;
+        background-color: transparent;
+        width: 45px;
+        outline: none;
+        border: none;
+        border-radius: 20px;
+        transition: 200ms;
+    }
+    
+    .search input.searching {
+        width: 200px;
+        background-color: rgba(256, 256, 256, 0.1);
+        color: white;
+    }
+    
+    .modal {
+        display: none;
+        align-items: center;
+        position: fixed;
+        place-content: center;
+        z-index: 999999999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(8, 65, 84, 0.62);
+    }
+    
+    .modal-order {
+        background-color: white;
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .modal-order .bottom {
+        padding: 50px 0 0;
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .separator::before,
+    .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid var(--dark-blue);
+    }
+    
+    .modal.active {
+        display: flex;
+    }
+    /* BANNER */
+    
+    .banner-info {
+        display: flex;
+        flex-flow: column;
+        width: 27%;
+        float: right;
+        color: white;
+        text-align: end;
+        padding: 83px 250px;
+    }
+    
+    .banner-info-title,
+    .banner-info-price {
+        font-weight: bold;
+        font-size: 50px;
+    }
+    
+    .banner-nav {
+        height: 265px;
+        width: 50px;
+        position: absolute;
+        top: 180px;
+        right: 0;
+        gap: 5px;
+        background-color: var(--blue);
+        color: white;
+        z-index: 99999;
+        display: flex;
+        flex-flow: column;
+        border-radius: 0 0 0px 10px;
+        overflow: hidden;
+    }
+    
+    .banner-nav-title {
+        writing-mode: vertical-lr;
+        place-self: center;
+        margin-top: 8px;
+        flex: 1 1;
+    }
+    
+    .banner-line-separator {
+        flex: 0.3;
+        width: 1px;
+        background-color: white;
+        place-self: center;
+    }
+    
+    .banner-nav-self {
+        background: var(--dark-blue);
+        text-align: center;
+        display: flex;
+        flex-flow: column;
+    }
+    
+    .banner-nav-self .arrows {
+        display: flex;
+        gap: 10px;
+        place-content: center;
+        padding: 5px 0;
+    }
+    
+    .banner-slide {
+        background-position: left;
+        background-size: cover;
+        background-position-y: -60px;
+        background-repeat: no-repeat;
+        height: 75vh!important;
+    }
+    /*GAMES OVERLAY*/
+    
+    .games-overlay {
+        display: flex;
+        height: auto;
+        transform: translateY(72vh);
+        place-content: center;
+        gap: 10px;
+        position: absolute;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .game-overlay {
+        width: 420px;
+        height: 270px;
+        display: flex;
+        background-size: cover;
+    }
+    
+    .games-overlay .game-footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 40px;
+        flex: 1;
+        place-self: flex-end;
+        background: var(--blue);
+        margin-left: 10px;
+        padding: 0 15px;
+    }
+    
+    .games-overlay .game-footer hr {
+        color: black;
+        flex: 1;
+        height: 0px;
+    }
+    /* MAIN */
+    
+    .main {
+        display: flex;
+        flex-flow: column;
+        margin: 220px auto 20px;
+        max-width: 800px;
+    }
+    
+    .highlight {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .highlight>span {
+        font-size: 24px;
+    }
+    
+    .games-card-container {
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .game-card {
+        display: flex;
+        flex-flow: column;
+        width: 200px;
+        height: 350px;
+        box-shadow: 0px 4px 20px 7px rgba(0, 0, 0, 0.07);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .game-card .card-top {
+        flex: 0.66;
+        background: white;
+        background-size: cover;
+        padding: 20px;
+        background-position: center;
+    }
+    
+    .game-card .card-bottom {
+        flex: 0.33;
+        background: #F5F5F5;
+        padding: 5px 10px;
+        color: var(--dark-blue);
+        justify-content: space-between;
+    }
+    
+    .game-card .card-bottom .btn-buy {
+        padding: 10px 20px;
+        background: var(--blue);
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .game-card .card-bottom .btn-buy.bought {
+        text-align: start;
+        background: var(--dark-blue);
+    }
+    
+    .btn-buy.bought::after {
+        content: '';
+        height: 50px;
+        width: 30px;
+        position: absolute;
+        background-image: url(./img/mario_peace.png);
+        background-size: cover;
+        background-position-x: center;
+        transform: translate(30px, -22px);
+    }
