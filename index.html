@@ -14,12 +14,14 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="left" style="gap: 40px;">
+    <div class="header flex-hr">
+        <div class="left">
             <img src="./svgs/icon_hamburguer.svg" alt="" class="hamburger clickable">
             <a href=""><img src="./img/Logo_N1_Rush_fundo_escuro_bg_tranparente 1.png" alt="Logo Agência N1" class="logo"></a>
             <div class="header-games-overlay">
-                <div class="header-games-overlay-bg"></div>
+                <div class="header-games-overlay-bg">
+
+                </div>
             </div>
 
         </div>
@@ -28,10 +30,12 @@
                 <img src="./svgs/paper-plane.svg" alt="Contato" class="contact-img">
                 <span>Contato</span>
             </a>
+            <div class="vertical-line"></div>
             <div class="search" style="gap:10px;">
                 <img src="./svgs/search-solid.svg" alt="Buscar" class="search-img clickable">
                 <input type="text" placeholder="Buscar" class="search-input">
             </div>
+            <div class="vertical-line"></div>
             <a class="cart clickable" href="/carrinho" style="display: flex;">
                 <img src="./svgs/shopping-bag-solid.svg" alt="Sacola" class="cart-img">
                 <span class="badge">2</span>
@@ -42,11 +46,11 @@
     <div class="banner">
 
     </div>
-    <div class="banner-nav">
+    <div class="banner-nav flex-vr">
         <span class="banner-nav-title"></span>
         <div class="banner-line-separator"></div>
-        <div class="banner-nav-self">
-            <span>1/2</span>
+        <div class="banner-nav-self flex-vr">
+            <span style="margin-top: 5px;">1/2</span>
             <div class="arrows">
                 <img src="./svgs/angle-left-solid.svg" alt="Anterior" class="left clickable" onclick="$('.banner').slick('slickPrev')">
                 <img src="./svgs/angle-right-solid.svg    " alt="Avançar" class="right clickable" onclick="$('.banner').slick('slickNext')">
@@ -56,29 +60,33 @@
     <div class="games-overlay">
 
     </div>
-    <div class="main">
+    <div class="main flex-vr">
         <div class="highlight">
             <img src="./svgs/gallery-3x3.svg" alt="Destaque" width="18px">
             <span>Produtos em destaque</span>
         </div>
-        <div class="games-card-container flex-hr">
+        <div class="main-games-cards-carousel flex-hr" style="gap:10px">
+            <img src="./svgs/angle-left-solid-black.svg" alt="Voltar" class="cards-carousel-prev" onclick="cardslid.goTo('prev');">
+            <div class="games-card-container flex-hr">
 
+            </div>
+            <img src="./svgs/angle-right-solid-black.svg" alt="Avançar" class="cards-carousel-next" onclick="cardslid.goTo('next');">
         </div>
     </div>
     <div class="modal">
-        <div class="modal-order">
+        <div class="modal-order flex-vr">
             <div class="top" style="display: flex;place-content: flex-end;">
                 <img src="./svgs/close_btn.svg" alt="Fechar" class="clickable">
             </div>
-            <div class="bottom">
+            <div class="bottom flex-vr">
                 <span class="separator"><span style="padding: 0 10px;font-size:24px;max-width: 170px;">Pedido realizado com sucesso!</span></span>
-                <img src="./img/mario_peace.png" alt="Sucesso" style="padding: 0 50px;">
+                <img src="./img/mario_peace.png" alt="Sucesso" style="padding: 0 70px;">
             </div>
 
         </div>
     </div>
 
-    <div class="footer">
+    <div class="footer flex-hr">
         <div class="left">
             <img src="./img/logo_header 1.png" alt="Logo Agência N1" class="logo">
         </div>
@@ -89,10 +97,11 @@
     <script src="./methods.js"></script>
     <script src="./db.js"></script>
     <script>
+        //console.log(db)
         db.banner_games.forEach(game => {
             $('.banner').append(`
             <div class="banner-slide" style="background-image:url(${game.img});">
-                <div class="banner-info">
+                <div class="banner-info flex-vr">
                     <span class="banner-info-title">${game.title}</span>
                     <span class="banner-info-price" style="color:var(--blue);
                         font-weight:bold;font-size:50px;">R$${subfy(currency(game.price), 22)}</span>
@@ -113,7 +122,7 @@
         })
         db.hot_games.forEach(game => {
             $('.games-card-container').append(`
-                <div class="game-card">
+                <div class="game-card flex-vr">
                     <game>${game.id}</game>
                     <a class="card-top" href="${game.href}" style="background-image:url(${game.img});"></a>
                     <div class="card-bottom flex-vr">
@@ -123,12 +132,22 @@
                     </div>
                 </div>
             `)
-
         })
+        db.header_games.map(gamelist => {
+                    $('.header-games-overlay-bg').append(`
+                    <ul class="flex-vr"style="list-style-type: none;">
+                        <span>${gamelist.genre}</span>
+                        ${gamelist['games'].map(game=>{return `<li><a href="${game.href}">${game.title}</a></li>`}
+                        ).join('')}
+                    </ul>
+                `)
+            })
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
-
+<link rel="stylesheet" href="./mobile_styles.css" id="mobile_sheet" disabled>
 <script src="./home.js" defer></script>
+<script src="./mobileStyles.js"></script>
 
 </html>

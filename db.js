@@ -1,22 +1,31 @@
 const db = {
-    header_games: {
-        luta: [
-            { title: "Mortal Kombat", href: "/games/mk-x" },
-            { title: "Smash Bros", href: "/games/smash-bros" },
-            { title: "Killer Instict", href: "/games/killer-instict" },
-            { title: "DBZ Kakarot", href: "/games/dbz-kakarot" },
-        ],
-        acao_aventura: [
-            { title: "GTA V", href: "/games/gta-v" },
-            { title: "Tomb Raider", href: "/games/tomb-raider" },
-            { title: "HALO", href: "/games/halo" },
-            { title: "Call of Duty", href: "/games/cod" },
-        ],
-        corrida: [
-            { title: "NEED For SPEED", href: "/games/nfs" },
-            { title: "Forza Horizon", href: "/games/forza-horizon" },
-        ]
-    },
+    header_games: [{
+            genre: "Luta",
+            games: [
+                { title: "Mortal Kombat", href: "/games/mk-x" },
+                { title: "Smash Bros", href: "/games/smash-bros" },
+                { title: "Killer Instict", href: "/games/killer-instict" },
+                { title: "DBZ Kakarot", href: "/games/dbz-kakarot" },
+
+            ]
+        },
+        {
+            genre: "Ação / Aventura",
+            games: [
+                { title: "GTA V", href: "/games/gta-v" },
+                { title: "Tomb Raider", href: "/games/tomb-raider" },
+                { title: "HALO", href: "/games/halo" },
+                { title: "Call of Duty", href: "/games/cod" },
+            ]
+        },
+        {
+            genre: "Corrida",
+            games: [
+                { title: "NEED For SPEED", href: "/games/nfs" },
+                { title: "Forza Horizon", href: "/games/forza-horizon" },
+            ]
+        },
+    ],
     banner_games: [{
             title: "Mortal Kombat X",
             price: 299.99,

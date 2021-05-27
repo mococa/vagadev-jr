@@ -1,0 +1,109 @@
+html {
+    overflow-x: hidden!important;
+}
+
+.header {
+    padding: 10px 20px;
+}
+
+.header .left {
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.header-games-overlay {
+    background-color: var(--dark-blue);
+    top: 60px;
+    border-radius: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 999999;
+    height: auto;
+}
+
+.header-games-overlay .header-games-overlay-bg {
+    flex-flow: column;
+}
+
+.header .right {
+    gap: 10px;
+}
+
+.header .right a.contact span,
+.header .right .vertical-line,
+.header .right input {
+    display: none;
+}
+
+.games-card-container {
+    gap: 50px;
+}
+
+.games-overlay {
+    position: unset;
+    transform: unset;
+    place-self: center;
+    margin: 10px 10px 0;
+}
+
+.game-overlay {
+    width: 350px;
+}
+
+.banner {
+    height: 400px;
+}
+
+.banner-nav {
+    height: unset;
+    width: unset;
+    position: unset;
+    top: unset;
+    right: unset;
+}
+
+.banner-nav-title {
+    writing-mode: unset;
+}
+
+.banner-info {
+    width: 100%;
+    float: unset;
+    padding: unset;
+    flex: 1;
+    place-content: flex-end;
+    margin-top: auto;
+    margin-bottom: 80px;
+    height: 400px;
+}
+
+.banner-info-title,
+.banner-info-price {
+    font-size: 35px;
+}
+
+.banner-info-title,
+.banner-info-price,
+.banner-info-description {
+    padding: 0 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner-slide {
+    height: 400px!important;
+    display: flex!important;
+    background-position-y: unset;
+    background-position-x: -95px;
+    flex: 1;
+}
+
+.main {
+    margin: 40px auto 100px;
+    place-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.main-games-cards-carousel>img {
+    display: unset;
+}
