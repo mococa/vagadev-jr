@@ -23,10 +23,14 @@ html {
     border-radius: 0;
     left: 0;
     width: 100vw;
-    padding-bottom: 350%;
+    /* padding-bottom: 200px; */
     z-index: 9999999;
     height: auto;
     box-shadow: unset;
+}
+
+.header-games-overlay.active {
+    padding-bottom: 100%;
 }
 
 .hamburger.opened {

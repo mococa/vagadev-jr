@@ -9,6 +9,10 @@ html.lock {
     overflow-y: hidden;
 }
 
+.height-100 {
+    height: 100%!important;
+}
+
 :root {
     --blue: #3EC6E0;
     --dark-blue: #084154;

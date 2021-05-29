@@ -15,10 +15,12 @@ $(document).click((e) => {
             if ($('.header-games-overlay').hasClass('active') && IS_MOBILE) {
                 $('.hamburger').attr('src', '../svgs/close-burger.svg')
                 $('.header')[0].style['background-color'] = 'var(--dark-blue)'
+                $('html,body').addClass('height-100')
+
             } else {
                 $('.hamburger').attr('src', '../svgs/icon_hamburguer.svg')
                 $('.header')[0].style['background-color'] = null
-                    //$('.header').css('background-color', 'unset')
+                $('html,body').removeClass('height-100')
             }
             return
 
