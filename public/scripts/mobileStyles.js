@@ -6,30 +6,33 @@ $(document).ready(function() {
 $(window).on("resize", function() {
     checkWidth();
 });
-var cardslid;
+
 
 function checkWidth() {
     if ($(window).width() < MOBILE_LIMITE) {
-        $("#mobile_sheet").removeAttr("disabled");
         onlymobile()
         IS_MOBILE = true;
 
     } else {
-        $("#mobile_sheet").attr("disabled", "disabled");
         IS_MOBILE = false;
         try {
             for (const [i, game] of db.banner_games.entries()) {
                 $('.banner-slide').eq(i).css('background-image', `url(${game.img})`)
             }
-            $('.banner').slick({
+            reslick('.banner', {
                 autoplay: true,
                 autoplaySpeed: 5000,
                 arrows: false
             })
-            $('.games-card-container').slick('unslick')
+
         } catch (e) {}
         try {
-            cardslid.destroy();
+            reslick('.banner', {
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false
+            })
+            try { $('.games-card-container').slick('unslick') } catch (er) {}
         } catch (err) {
 
         }
@@ -38,17 +41,18 @@ function checkWidth() {
 }
 
 function onlymobile() {
-    $('.games-card-container').slick({
+    reslick('.games-card-container', {
         adaptiveHeight: true,
         arrows: false,
     })
     for (const [i, game] of db.banner_games.entries()) {
         $('.banner-slide').eq(i).css('background-image', `url(${game.img_mobile})`)
     }
-    $('.banner').slick({
+    reslick('.banner', {
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
         arrows: false
     })
+
 
 }

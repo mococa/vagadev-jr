@@ -1,4 +1,4 @@
-const currency = (c) => {
+const currency = (c) => { // Converte float em Real
     var _num = new Number(c).toLocaleString("pt-BR");
     if (_num.includes(",")) {
         if (_num.split(",")[1].length > 1) {
@@ -13,10 +13,10 @@ const currency = (c) => {
     }
     return _num
 }
-const subfy = (x, size) => {
+const subfy = (x, size) => { // => Retorna HTML com CSS de dinheiro (centavos em cima)
     return x.split(',')[0] + `<sup style='font-size:${size}px'>,` + x.split(',')[1] + "</sup>"
 }
-const moneyfy = (x) => {
+const moneyfy = (x) => { // => Converte Real em float
     return parseFloat(x.split('$')[1].replace(',', '.'))
 }
 
@@ -58,4 +58,12 @@ function removeFromCart(game) {
 function closeModal() {
     // Unlock scrolling
     $('html').removeClass('lock');
+}
+
+function reslick(selector, opt = {}) {
+    //ReSlicking with error suppressor
+    try {
+        $(selector).slick('unslick')
+    } catch (err) {}
+    $(selector).slick(opt)
 }

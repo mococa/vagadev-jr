@@ -7,7 +7,7 @@ $(document).click((e) => {
     if (!classe) return
     switch (true) {
         case classe.includes("search"):
-
+            IS_MOBILE ? $('.search input').css('display', 'flex') : null; // For animation
             return $('.header, .search input').addClass('searching');
 
         case classe.includes("hamburger"):
@@ -25,6 +25,7 @@ $(document).click((e) => {
         default:
             $('.header, .search input').removeClass('searching')
             $('.header-games-overlay').removeClass('active')
+            IS_MOBILE ? $('.search input').css('display', 'none') : null; // For animation
 
     }
 })

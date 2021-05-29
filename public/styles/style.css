@@ -257,6 +257,11 @@ div.vertical-line {
     height: 270px;
     display: flex;
     background-size: cover;
+    transition: 150ms ease;
+}
+
+.game-overlay:hover {
+    transform: scale(0.99);
 }
 
 .games-overlay .game-footer {
@@ -307,6 +312,11 @@ div.vertical-line {
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
     border-radius: 10px;
     overflow: hidden;
+    transition: 150ms ease;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
 }
 
 .game-card .card-top {

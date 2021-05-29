@@ -18,12 +18,12 @@ html {
 
 .header-games-overlay {
     background-color: var(--dark-blue);
-    /* header height + padding */
+    /* Tamanho do Header + padding */
     top: calc(56px + 2*10px);
     border-radius: 0;
     left: 0;
     width: 100vw;
-    padding-bottom: 100vh;
+    padding-bottom: 350%;
     z-index: 9999999;
     height: auto;
     box-shadow: unset;
@@ -69,7 +69,43 @@ html {
 .header .right .vertical-line,
 .header .right input {
     display: none;
-    visibility: hidden;
+    flex: 0;
+    width: 0;
+    transition: 1000ms;
+}
+
+header.searching .search {
+    gap: 15px;
+    flex-flow: row-reverse;
+    flex: 1;
+}
+
+@keyframes search-anim {
+    0% {
+        display: none;
+    }
+    1% {
+        display: flex;
+        width: 0;
+        flex: 0;
+    }
+    100% {
+        flex: 1;
+    }
+}
+
+header.searching .search input {
+    animation: search-anim 300ms ease 1 normal;
+    width: unset;
+    flex: 1;
+}
+
+header.searching>.right>*:not(:nth-child(3)) {
+    display: none!important;
+}
+
+header.searching>.left>*:not(:nth-child(1)) {
+    display: none;
 }
 
 .games-card-container {
@@ -171,32 +207,7 @@ html {
     display: unset;
 }
 
-header.searching .search {
-    gap: 15px;
-    flex-flow: row-reverse;
-    flex: 1;
-}
-
-header.searching .search input {
-    display: flex;
-    visibility: visible;
-    flex: 0;
-    flex: 1;
-}
-
-header.searching>.right>*:not(:nth-child(3)) {
-    display: none!important;
-}
-
-header.searching>.left>*:not(:nth-child(1)) {
-    display: none;
-}
-
 .footer .left {
     flex: 0;
     padding: 10px;
-}
-
-.header-games-overlay.active+html body {
-    height: 100%;
 }
