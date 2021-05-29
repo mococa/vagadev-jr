@@ -33,6 +33,11 @@
  
 </details>
 
+### Preview
+
+Video: https://youtu.be/3O5vMkp7Pbk
+
+Site: https://www.e-commerce-mococa.tk
  
 # Avaliação Front-End JR N1 #
 
