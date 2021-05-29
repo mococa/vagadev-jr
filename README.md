@@ -1,3 +1,13 @@
+# Espaço do Autor
+ - Nome: Luiz Felipe Sousa Moureau Linhares
+ - Idade: 20 anos
+ - Universidade: UFRJ (Física Médica)
+ - Email de Contato: luizfelipesmoureau@gmail.com
+ - Hospedado em: https://www.e-commerce-mococa.tk
+ - Tecnologias utilizadas: JQuery, HTML, CSS, JS (and node for hosting)
+ 
+---
+ 
 # Avaliação Front-End JR N1 #
 
 Leia atentamente até o final.

@@ -5,6 +5,9 @@ html {
 .header {
     padding: 10px 20px;
     height: 56px;
+    background-image: linear-gradient(to right, var(--dark-blue) 50%, rgba(0,0,0,0.6) 50%);
+    background-size: 200% 100%;
+    background-position: right;
 }
 
 .header .left {
@@ -19,10 +22,12 @@ html {
 .header-games-overlay {
     background-color: var(--dark-blue);
     /* Tamanho do Header + padding */
-    top: calc(56px + 2*10px);
+    top: calc(56px + 2*10px - 1px);
     border-radius: 0;
-    left: 0;
+    left: -100%;
     width: 100vw;
+    opacity: 1;
+    visibility: visible;
     /* padding-bottom: 200px; */
     z-index: 9999999;
     height: auto;
@@ -31,6 +36,7 @@ html {
 
 .header-games-overlay.active {
     padding-bottom: 100%;
+    left:0;
 }
 
 .hamburger.opened {

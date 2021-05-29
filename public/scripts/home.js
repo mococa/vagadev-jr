@@ -2,7 +2,6 @@ $(document).click((e) => {
     // ATUALIZANDO BOTÕES DE COMPRAR E HANDLING CLICKS
     $('.btn-buy').each(function() { $(this).text($(this).hasClass('bought') ? "Comprado!" : "Comprar") })
     const classe = $(e.target).attr('class')
-    console.log(classe)
 
     if (!classe) return
     switch (true) {
@@ -14,12 +13,12 @@ $(document).click((e) => {
             $('.header-games-overlay').toggleClass('active')
             if ($('.header-games-overlay').hasClass('active') && IS_MOBILE) {
                 $('.hamburger').attr('src', '../svgs/close-burger.svg')
-                $('.header')[0].style['background-color'] = 'var(--dark-blue)'
+                $('.header')[0].style['background-position'] = 'left'
                 $('html,body').addClass('height-100')
 
             } else {
                 $('.hamburger').attr('src', '../svgs/icon_hamburguer.svg')
-                $('.header')[0].style['background-color'] = null
+                $('.header')[0].style['background-position'] = null
                 $('html,body').removeClass('height-100')
             }
             return
@@ -35,13 +34,13 @@ $(document).click((e) => {
 //BUSCA
 $('.search').click(() => {
     if ($('.search input').hasClass('searching')) {
-        location.href = "/?search=" + $('.search input').val()
+        location.href = "/search?q=" + $('.search input').val()
     }
 }).children('input').click((e) => false);
 
 $('.search input').on('keyup', function(e) {
     if (e.which === 13) {
-        location.href = "/?search=" + $(this).val()
+        location.href = "/search?q=" + $(this).val()
     }
 }).on('focus', function() {
     $('.header, .search input').addClass('searching');
