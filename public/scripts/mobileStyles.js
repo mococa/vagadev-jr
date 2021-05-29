@@ -17,15 +17,17 @@ function checkWidth() {
     } else {
         $("#mobile_sheet").attr("disabled", "disabled");
         IS_MOBILE = false;
-        $('.banner').slick('unslick')
-        for (const [i, game] of db.banner_games.entries()) {
-            $('.banner-slide').eq(i).css('background-image', `url(${game.img})`)
-        }
-        $('.banner').slick({
-            autoplay: true,
-            autoplaySpeed: 5000,
-            arrows: false
-        })
+        try {
+            for (const [i, game] of db.banner_games.entries()) {
+                $('.banner-slide').eq(i).css('background-image', `url(${game.img})`)
+            }
+            $('.banner').slick({
+                autoplay: true,
+                autoplaySpeed: 5000,
+                arrows: false
+            })
+            $('.games-card-container').slick('unslick')
+        } catch (e) {}
         try {
             cardslid.destroy();
         } catch (err) {
@@ -36,26 +38,10 @@ function checkWidth() {
 }
 
 function onlymobile() {
-    cardslid = tns({
-        container: '.games-card-container',
-        autoplay: true,
-        autoplaySpeed: 1500,
-        autoplayButton: false,
-        autoplayButtonOutput: false,
-        controlsText: false,
-        items: 1,
-        center: true,
-        nav: false,
-        mouseDrag: true,
-        preventScrollOnTouch: 'auto',
-        responsive: {
-            400: {
-                items: 1,
-                controls: true
-            }
-        }
+    $('.games-card-container').slick({
+        adaptiveHeight: true,
+        arrows: false,
     })
-    $('.banner').slick('unslick')
     for (const [i, game] of db.banner_games.entries()) {
         $('.banner-slide').eq(i).css('background-image', `url(${game.img_mobile})`)
     }

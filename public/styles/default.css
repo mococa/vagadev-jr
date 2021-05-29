@@ -5,6 +5,10 @@
     ;
 }
 
+html.lock {
+    overflow-y: hidden;
+}
+
 :root {
     --blue: #3EC6E0;
     --dark-blue: #084154;

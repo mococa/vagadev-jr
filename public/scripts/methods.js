@@ -44,6 +44,8 @@ function addToCart(game) {
         cart_json.push(game) &&
         localStorage.setItem('cart', JSON.stringify(cart_json)) :
         localStorage.setItem('cart', JSON.stringify([game]));
+    // Lock scrolling
+    $('html').addClass('lock');
 }
 
 function removeFromCart(game) {
@@ -51,5 +53,9 @@ function removeFromCart(game) {
     let cart_json = JSON.parse(cart)
     cart_json.splice(cart_json.findIndex(x => x.id == game.id))
     localStorage.setItem('cart', JSON.stringify(cart_json));
+}
 
+function closeModal() {
+    // Unlock scrolling
+    $('html').removeClass('lock');
 }
