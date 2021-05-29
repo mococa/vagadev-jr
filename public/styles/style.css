@@ -244,7 +244,6 @@ div.vertical-line {
 .banner-slide {
     background-position: left;
     background-size: cover;
-    background-position-y: -75px;
     background-repeat: no-repeat;
     /* height: 75vh!important; */
 }
