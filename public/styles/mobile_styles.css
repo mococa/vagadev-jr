@@ -15,10 +15,6 @@ html {
     margin-right: 10px;
 }
 
-.header-games-overlay-bg span {
-    margin-left: 30px;
-}
-
 .header-games-overlay {
     background-color: var(--dark-blue);
     /* Tamanho do Header + padding */
