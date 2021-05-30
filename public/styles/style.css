@@ -84,7 +84,7 @@
 }
 
 .header-games-overlay-bg {
-    width: calc(100% - 5px);
+    margin: 4px;
     height: calc(100% - 23px);
     background: var(--dark-blue);
     border-radius: 5px;
@@ -97,13 +97,14 @@
     list-style-type: none;
     padding: 10px 3px;
     align-self: flex-start;
-    text-align: center;
+    text-align: start;
     gap: 5px;
 }
 
 .header-games-overlay-bg span {
     font-weight: bold;
     margin-bottom: 12px;
+    padding: 0 30px;
 }
 
 .header-games-overlay-bg ul li {
