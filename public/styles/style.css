@@ -270,6 +270,8 @@ div.vertical-line {
     display: flex;
     background-size: cover;
     transition: 150ms ease;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
 }
 
 .game-overlay:hover {
@@ -284,7 +286,7 @@ div.vertical-line {
     flex: 1;
     place-self: flex-end;
     background: var(--blue);
-    margin-left: 10px;
+    border-left: 10px solid var(--dark-blue);
     padding: 0 15px;
 }
 
