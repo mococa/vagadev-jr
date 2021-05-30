@@ -184,12 +184,13 @@ div.vertical-line {
 /* BANNER */
 
 .banner-info {
-    width: 27%;
+    width: 30%;
     float: right;
     color: white;
     text-align: end;
     padding: 163px 250px 0px;
     height: 75vh;
+    align-items: flex-end;
 }
 
 .banner-info-title,

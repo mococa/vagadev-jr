@@ -175,6 +175,10 @@ header.searching>.left>*:not(:nth-child(1)):not(.header-games-overlay) {
     padding-top: 80px;
 }
 
+.banner-info-title {
+    padding-top: 10px!important;
+}
+
 .banner-info-title,
 .banner-info-price {
     font-size: 30px;
@@ -185,6 +189,7 @@ header.searching>.left>*:not(:nth-child(1)):not(.header-games-overlay) {
 .banner-info-description {
     padding: 0 20px;
     background-color: rgba(0, 0, 0, 0.5);
+    width: calc(100% - 2*20px);
 }
 
 .banner-info-description {
