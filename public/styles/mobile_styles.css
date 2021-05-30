@@ -114,7 +114,7 @@ header.searching>.right>*:not(:nth-child(3)) {
     display: none!important;
 }
 
-header.searching>.left>*:not(:nth-child(1)) {
+header.searching>.left>*:not(:nth-child(1)):not(.header-games-overlay) {
     display: none;
 }
 
