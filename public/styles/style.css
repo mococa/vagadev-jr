@@ -337,6 +337,7 @@ div.vertical-line {
     background-size: cover;
     padding: 20px;
     background-position: center;
+    border-bottom: 2px solid var(--blue);
 }
 
 .game-card .card-bottom {
